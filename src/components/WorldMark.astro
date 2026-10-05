@@ -1,0 +1,11 @@
+---
+const { world = 'academic' } = Astro.props;
+---
+<svg class="world-mark" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+  {world === 'academic' ? <>
+    <circle cx="60" cy="60" r="36"/><ellipse cx="60" cy="60" rx="18" ry="36"/><path d="M24 60h72M60 24v72M34 35l52 50M34 85l52-50"/>
+    <circle cx="60" cy="24" r="3" fill="currentColor"/><circle cx="86" cy="85" r="3" fill="currentColor"/><circle cx="34" cy="85" r="3" fill="currentColor"/>
+  </> : <>
+    <path d="M60 99V49M60 76C30 76 26 55 30 36c22 2 31 16 30 40ZM60 61c27 0 35-22 29-40-20 4-30 17-29 40Z"/><path d="M30 36l30 40M89 21L60 61M44 100h32"/><circle cx="32" cy="91" r="2"/><circle cx="98" cy="74" r="2"/>
+  </>}
+</svg>

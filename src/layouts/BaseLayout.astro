@@ -1,0 +1,20 @@
+---
+import '../styles/global.css';
+const { title = 'Wency — One person, two ways to explore', world = 'entry', description = 'The personal digital space of Wency Miao. Explore Academic and Elsewhere.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f4ef" />
+    <title>{title}</title>
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+  </head>
+  <body class={world}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <footer><span>Wency Miao</span><span>One person, two ways to explore.</span></footer>
+  </body>
+</html>

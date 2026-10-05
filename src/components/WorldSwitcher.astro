@@ -1,0 +1,9 @@
+---
+const { world } = Astro.props;
+const other = world === 'academic' ? 'elsewhere' : 'academic';
+const base = import.meta.env.BASE_URL;
+---
+<nav aria-label="World navigation">
+  <a href={base}>Back to entry</a>
+  <a class="switch-link" href={`${base}${other}/`}>{other === 'academic' ? 'Academic' : 'Elsewhere'} <span aria-hidden="true">→</span></a>
+</nav>

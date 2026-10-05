@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorldSwitcher from './WorldSwitcher.astro';
+import WorldMark from './WorldMark.astro';
+import { worlds } from '../data/worlds';
+const { world } = Astro.props as {world: 'academic' | 'elsewhere'};
+const content = worlds[world];
+---
+<BaseLayout title={`${content.name} — Wency Miao`} world={world} description={content.description}>
+  <header class="world-header"><a class="wordmark" href={import.meta.env.BASE_URL} aria-label="Wency — back to entry">WENCY<span class="name-dot">.</span></a><WorldSwitcher world={world} /></header>
+  <main id="main" class="world-main">
+    <section class="world-intro"><p class="eyebrow">{content.subtitle}</p><h1>{content.name}<span class="name-dot">.</span></h1><p class="world-heading">{content.intro}</p><p class="world-description">{content.description}</p></section>
+    <div class="world-art"><WorldMark world={world} /><span class="art-caption">{world === 'academic' ? 'QUESTION / OBSERVE / UNDERSTAND' : 'NOTICE / WANDER / MAKE'}</span></div>
+    <section class="foundation-note" aria-label="Collection status"><span class="small-label">A WORK IN PROGRESS</span><div><h2>{content.status}</h2><p>{content.next}</p></div></section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorldMark from '../components/WorldMark.astro';
+import { worlds } from '../data/worlds';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout>
+  <main id="main" class="entry-main">
+    <div class="identity"><p class="eyebrow">A PERSONAL SPACE</p><h1>WENCY<span class="name-dot">.</span></h1><p class="invitation">How would you like to explore?</p></div>
+    <div class="world-choices">
+      {Object.entries(worlds).map(([key, world], i) => <a class={`world-choice choice-${key}`} href={`${base}${key}/`}>
+        <div class="choice-top"><span class="index">0{i + 1}</span><WorldMark world={key} /><span class="choice-arrow" aria-hidden="true">→</span></div>
+        <h2>{world.name}</h2><p>{world.subtitle}</p>
+        <span class="enter-label">Enter {world.name}<span aria-hidden="true"> →</span></span>
+      </a>)}
+    </div>
+  </main>
+</BaseLayout>
