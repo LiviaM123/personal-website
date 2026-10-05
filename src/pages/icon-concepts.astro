@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+const groups = [
+  {
+    name: 'Academic',
+    concepts: [
+      { id: 'A1', name: 'Personal constellation', description: 'An open constellation with a subtle W-shaped spine.' },
+      { id: 'A2', name: 'Research mesh', description: 'An irregular scientific network with quiet annotation marks.' },
+      { id: 'A3', name: 'Traces & encounters', description: 'Open trajectories meeting at a shared point of discovery.' },
+    ],
+  },
+  {
+    name: 'Elsewhere',
+    concepts: [
+      { id: 'E1', name: 'Lily of the valley', description: 'An arched stem, hanging bells and one slender leaf.' },
+      { id: 'E2', name: 'Ginkgo specimen', description: 'A notched fan leaf whose veins echo network connections.' },
+      { id: 'E3', name: 'Nemophila study', description: 'Five rounded petals, a delicate centre and a small lobed leaf.' },
+    ],
+  },
+];
+---
+<BaseLayout title="Icon Concepts — Wency Miao" description="Six proposed SVG icons for Academic and Elsewhere. A temporary comparison page.">
+  <header class="concept-header"><a class="wordmark" href={base}>WENCY<span class="name-dot">.</span></a><a href={base}>Back to entrance →</a></header>
+  <main id="main" class="concept-main">
+    <p class="eyebrow">TEMPORARY DESIGN STUDIES</p>
+    <h1>Icon Concepts</h1>
+    <p class="intro">Six studies, one visual family. Compare the enlarged drawings and the smaller entrance-size samples below.</p>
+    <p class="review-note">These are proposals only. The entrance page and its current icons have not been changed.</p>
+    {groups.map(group => <section aria-labelledby={group.name.toLowerCase()}>
+      <h2 id={group.name.toLowerCase()}>{group.name}</h2>
+      <div class="concept-grid">
+        {group.concepts.map(concept => <article>
+          <p class="concept-id">{concept.id}</p>
+          <div class="large-icon"><img src={`${base}icon-concepts/${concept.id.toLowerCase()}.svg`} alt={`${concept.name} icon concept`} width="240" height="240" /></div>
+          <h3>{concept.name}</h3>
+          <p class="description">{concept.description}</p>
+          <div class="small-sample"><span>At entrance size</span><img src={`${base}icon-concepts/${concept.id.toLowerCase()}.svg`} alt="" width="95" height="95" /></div>
+        </article>)}
+      </div>
+    </section>)}
+    <p class="review-note">Each concept uses the same 120 × 120 SVG canvas, thin line weight and rounded ends. Choose one Academic concept and one Elsewhere concept to refine.</p>
+  </main>
+</BaseLayout>
+<style>
+  .concept-header{width:min(1200px,calc(100% - 80px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--line);gap:20px}
+  .concept-header > a:last-child{font-size:13px}
+  .concept-main{width:min(1200px,calc(100% - 80px));margin:0 auto;padding:55px 0 65px}
+  h1{font-size:clamp(40px,6vw,64px);letter-spacing:-1.5px;margin:16px 0 22px}
+  .intro{font-size:17px;max-width:720px;color:var(--muted)}
+  .review-note{font-size:13px;color:var(--muted);margin:18px 0 0;max-width:800px}
+  section{margin-top:48px}
+  h2{font-size:30px;margin-bottom:18px}
+  .concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  article{padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .concept-id{font-size:13px;letter-spacing:2px;color:var(--muted)}
+  .large-icon{height:250px;display:flex;align-items:center;justify-content:center}
+  .large-icon img{width:240px;height:240px;max-width:100%;object-fit:contain}
+  h3{font:normal 23px/1.3 Georgia,serif;margin:10px 0 12px}
+  .description{font-size:14px;line-height:1.7;color:var(--muted);min-height:72px}
+  .small-sample{border-top:1px solid var(--line);padding-top:12px;margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .small-sample span{font-size:11px;color:var(--muted)}
+  .small-sample img{width:95px;height:95px;flex-shrink:0}
+  @media(max-width:900px){article{padding:18px}.large-icon{height:205px}.large-icon img{width:200px;height:200px}.description{min-height:96px}h3{font-size:21px}}
+  @media(max-width:700px){.concept-header,.concept-main{width:calc(100% - 40px)}.concept-main{padding-top:35px}.concept-grid{grid-template-columns:1fr}.large-icon{height:255px}.large-icon img{width:240px;height:240px}.description{min-height:0}article{padding:24px}.small-sample{margin-top:20px}.concept-header > a:last-child{font-size:12px}}
+</style>
