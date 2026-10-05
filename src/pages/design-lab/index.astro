@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+const concepts = [
+ ['01','typography','Typography only','Type, space, Roman numerals and rules. Two editorial columns without pictorial marks.'],
+ ['02','fields','Atmospheric fields','Scientific traces and botanical field notes integrated into the page, rather than standalone illustrations.'],
+ ['03','emblems','Emblems','A pair of bespoke bookplate-style seals: inquiry and observation, given equal presence.'],
+];
+---
+<BaseLayout title="Design Lab — Wency entrance studies">
+ <main id="main" class="lab-index">
+  <a class="back" href={base}>← Current homepage</a>
+  <p class="eyebrow">WENCY / DESIGN LAB</p><h1>Three ways<br/>to enter.</h1>
+  <p class="lead">Full-page entrance studies, starting from the same typography and ivory, navy and brown palette.</p>
+  <p class="note">Nothing here replaces the current homepage. Open a study, then use the top navigation to compare the other directions.</p>
+  <div class="study-list">{concepts.map(([number,slug,title,description])=><a href={`${base}design-lab/${slug}/`}><span class="number">{number}</span><div><h2>{title}</h2><p>{description}</p></div><span aria-hidden="true">→</span></a>)}</div>
+ </main>
+</BaseLayout>
+<style>
+.lab-index{width:min(860px,calc(100% - 80px));margin:auto;padding:48px 0 70px}.back{display:block;font-size:12px;margin-bottom:55px}.lab-index h1{font-size:clamp(50px,8vw,80px);letter-spacing:-2px;margin:20px 0 25px}.lead{font-size:18px;line-height:1.8;max-width:650px;color:var(--muted)}.note{font-size:13px;color:var(--muted);margin-top:16px;max-width:650px}.study-list{margin-top:45px;border-top:1px solid var(--line)}.study-list a{display:grid;grid-template-columns:55px 1fr 25px;gap:20px;padding:28px 0;border-bottom:1px solid var(--line);align-items:center}.number{font-size:12px;letter-spacing:2px;color:var(--muted)}h2{font-size:28px;margin-bottom:7px}.study-list p{font-size:14px;color:var(--muted)}.study-list a:hover h2{text-decoration:underline;text-underline-offset:6px}@media(max-width:540px){.lab-index{width:calc(100% - 48px);padding-top:32px}.study-list a{grid-template-columns:28px 1fr 15px;gap:12px}h2{font-size:25px}.back{margin-bottom:40px}}
+</style>

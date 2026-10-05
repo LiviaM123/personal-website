@@ -1,0 +1,15 @@
+---
+const { world } = Astro.props;
+---
+{world === 'academic' ?
+<svg viewBox="0 0 520 440" fill="none" class="field" aria-hidden="true">
+  <g stroke="currentColor" stroke-width=".65" opacity=".45"><path d="M35 0V405H520M35 340H520M35 260H520M35 180H520M35 100H520M120 0V405M205 0V405M290 0V405M375 0V405M460 0V405"/></g>
+  <g stroke="currentColor" stroke-width="1.15"><path d="M78 326L150 242L204 281L275 160L343 202L432 83L500 112M150 242L275 160L432 83M204 281L343 202L500 112M78 326L204 281M275 160L303 67"/><path d="M19 372C115 333 114 228 229 212S345 228 417 120S498 57 545 20" stroke-dasharray="3 5"/></g>
+  <g fill="var(--paper)" stroke="currentColor" stroke-width="1.5">{[[78,326],[150,242],[204,281],[275,160],[343,202],[432,83],[500,112],[303,67]].map(([cx,cy])=><circle cx={cx} cy={cy} r="4" />)}</g>
+  <g fill="currentColor" font-family="Georgia,serif" font-size="10"><text x="41" y="425">FIG. 01 / RELATIONS</text><text x="307" y="58">α</text><text x="441" y="73">β</text><text x="350" y="220">γ</text></g>
+</svg> :
+<svg viewBox="0 0 520 440" fill="none" class="field botanical" aria-hidden="true">
+  <g stroke="currentColor" stroke-width="1.05" stroke-linecap="round"><path d="M154 478C165 369 230 309 254 210S278 71 324-34M231 279C177 253 174 189 180 145C234 168 257 211 231 279ZM254 213C284 187 319 164 372 178C343 220 295 234 254 213ZM270 134C247 110 232 57 254 21C283 52 289 96 270 134ZM282 94C326 50 351 46 392 55C369 101 329 115 282 94Z"/><path d="M180 145C192 197 211 242 231 279M254 213L372 178M254 21L270 134M282 94L392 55M212 336C266 320 283 289 305 247M305 247C319 239 336 242 338 256C339 270 322 284 305 288C297 272 297 258 305 247ZM287 295C304 292 322 302 321 315C320 330 305 338 288 341C279 325 278 307 287 295Z"/></g>
+  <g stroke="currentColor" stroke-width=".7" opacity=".5"><path d="M108 362L445 114M108 366h30M422 114h23M400 0V440" stroke-dasharray="3 7"/><path d="M62 85h90M62 95h60M62 105h75"/></g>
+  <g fill="currentColor" font-family="Georgia,serif" font-size="11"><text x="305" y="398" transform="rotate(-8 305 398)">collected along the way</text><text x="60" y="72">FIELD NOTES / 02</text></g>
+</svg>}

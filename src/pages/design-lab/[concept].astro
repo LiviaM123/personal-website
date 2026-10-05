@@ -1,0 +1,8 @@
+---
+import EntranceStudy from '../../components/design-lab/EntranceStudy.astro';
+export function getStaticPaths() {
+  return ['typography', 'fields', 'emblems'].map(concept => ({params:{concept},props:{concept}}));
+}
+const { concept } = Astro.props;
+---
+<EntranceStudy concept={concept}/>
