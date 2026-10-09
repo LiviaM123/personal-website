@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL;
 const titles = { typography: 'Typography only', fields: 'Atmospheric fields', emblems: 'Emblems' };
 const numbers = { typography: '01', fields: '02', emblems: '03' };
 ---
-<BaseLayout title={`${titles[concept]} — Wency Design Lab`}>
+<BaseLayout signatureOnly={concept === 'fields'} title={`${titles[concept]} — Wency Design Lab`}>
   <nav class="lab-bar" aria-label="Design Lab navigation">
     <a href={`${base}design-lab/`}>Design Lab</a>
     <div>{Object.entries(titles).map(([slug,title])=><a href={`${base}design-lab/${slug}/`} aria-current={slug===concept?'page':undefined}>{numbers[slug]} / {title}</a>)}</div>

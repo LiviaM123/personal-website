@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const { title = 'Wency — One person, two ways to explore', world = 'entry', description = 'The personal digital space of Wency Miao. Explore Academic and Elsewhere.' } = Astro.props;
+const { signatureOnly = false, title = 'Wency — One person, two ways to explore', world = 'entry', description = 'The personal digital space of Wency Miao. Explore Academic and Elsewhere.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -15,6 +15,6 @@ const { title = 'Wency — One person, two ways to explore', world = 'entry', de
   <body class={world}>
     <a class="skip-link" href="#main">Skip to content</a>
     <slot />
-    <footer><span>Wency Miao</span><span>One person, two ways to explore.</span></footer>
+    <footer><span>Wency Miao</span>{!signatureOnly && <span>One person, two ways to explore.</span>}</footer>
   </body>
 </html>
