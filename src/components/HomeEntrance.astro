@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AtmosphericField from './AtmosphericField.astro';
 import { homeContent, languages, type Language } from '../data/site';
 const { lang } = Astro.props as { lang: Language };
 const content = homeContent[lang]; const copy = languages[lang]; const base = import.meta.env.BASE_URL;
@@ -7,8 +8,72 @@ const url = (path: string) => `${base}${path.replace(/^\//, '')}`;
 const switchHref = lang === 'en' ? '/zh/' : '/';
 ---
 <BaseLayout lang={lang} bodyClass="entrance-page" title={`${copy.brand} — ${lang === 'en' ? 'Personal Archive' : '个人档案'}`}>
-  <header class="entrance-header"><a class="entrance-brand" href={url(copy.home)}>{copy.brand}<span>.</span></a><nav aria-label={lang === 'en' ? 'Language' : '语言'}><span>{lang === 'en' ? 'EN' : '中文'}</span><span>/</span><a href={url(switchHref)}>{copy.switchLabel}</a></nav></header>
-  <main id="main" class="entrance-main"><p class="overline">{content.label}</p><h1>{content.heading}</h1><p class="entrance-prompt">{content.prompt}</p><div class="entrance-choices"><a href={url(copy.academic)}><span class="choice-label">{content.academicText}</span><h2>{content.academic}</h2><span>{copy.explore} &#8594;</span></a><a href={url(copy.elsewhere)}><span class="choice-label">{content.elsewhereText}</span><h2>{content.elsewhere}</h2><span>{copy.explore} &#8594;</span></a></div></main>
-  <img class="botanical-art botanical-home" src={`${base}art/lily-of-the-valley.webp`} alt="" aria-hidden="true" />
-  <footer class="archive-footer"><span>{copy.footer}</span><span>{content.label}</span></footer>
+  <header class="field-header">
+    <a class="field-brand" href={url(copy.home)}>{copy.brand}<span>.</span></a>
+    <nav aria-label={lang === 'en' ? 'Language' : '语言'}><span>{lang === 'en' ? 'EN' : '中文'}</span><span>/</span><a href={url(switchHref)}>{copy.switchLabel}</a></nav>
+  </header>
+  <main id="main" class="field-entry">
+    <section class="field-intro">
+      <p>{content.label}</p>
+      <h1>{content.heading}</h1>
+      <span>{content.prompt}</span>
+    </section>
+    <div class="worlds">
+      <a class="world academic-world" href={url(copy.academic)}>
+        <div class="world-art"><AtmosphericField world="academic" /></div>
+        <div class="world-meta"><span>01</span><span>{lang === 'en' ? 'A field of inquiry' : '求索之域'}</span></div>
+        <div class="world-copy"><h2>{content.academic}</h2><p>{content.academicText}</p><span class="enter">{copy.explore} <b>&#8594;</b></span></div>
+      </a>
+      <a class="world elsewhere-world" href={url(copy.elsewhere)}>
+        <div class="world-art"><AtmosphericField world="elsewhere" /></div>
+        <div class="world-meta"><span>02</span><span>{lang === 'en' ? 'A field of living' : '生活之域'}</span></div>
+        <div class="world-copy"><h2>{content.elsewhere}</h2><p>{content.elsewhereText}</p><span class="enter">{copy.explore} <b>&#8594;</b></span></div>
+      </a>
+    </div>
+  </main>
+  <footer class="archive-footer field-footer"><span>{copy.footer}</span><span aria-hidden="true"></span></footer>
 </BaseLayout>
+
+<style>
+  .field-header { width: min(1280px, calc(100% - 80px)); height: 82px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 3; }
+  .field-brand { font-size: 25px; letter-spacing: 5px; line-height: 1; }
+  .field-brand span { color: var(--brown); }
+  .field-header nav { display: flex; gap: 8px; font: 11px var(--sans); letter-spacing: .7px; }
+  .field-entry { width: min(1280px, calc(100% - 80px)); margin: 0 auto; padding: 46px 0 54px; }
+  .field-intro { display: grid; grid-template-columns: 1fr auto; align-items: end; margin-bottom: 34px; }
+  .field-intro p { grid-column: 1 / -1; margin: 0 0 9px; font: 9px var(--sans); letter-spacing: 2.2px; text-transform: uppercase; color: var(--muted); }
+  .field-intro h1 { margin: 0; font-size: clamp(58px, 7vw, 88px); font-weight: normal; line-height: .92; letter-spacing: 7px; }
+  .field-intro > span { padding-bottom: 5px; font-size: 15px; color: var(--muted); }
+  .worlds { display: grid; grid-template-columns: 1fr 1fr; min-height: 510px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .world { position: relative; min-width: 0; overflow: hidden; padding: 31px 38px 36px; display: flex; flex-direction: column; isolation: isolate; }
+  .world:first-child { border-right: 1px solid var(--line); }
+  .world::after { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(234,225,210,.52); opacity: 0; transition: opacity .35s ease; }
+  .world:hover::after, .world:focus-visible::after { opacity: 1; }
+  .world-art { position: absolute; inset: 0; z-index: -2; transition: transform .6s ease; }
+  .world:hover .world-art { transform: scale(1.018); }
+  .world-meta { display: flex; align-items: center; justify-content: space-between; font: 9px var(--sans); letter-spacing: 1.7px; text-transform: uppercase; color: var(--muted); }
+  .world-meta span:first-child { font: italic 25px var(--serif); color: var(--brown); }
+  .world-copy { margin-top: auto; max-width: 440px; padding: 38px 34px 23px; background: linear-gradient(90deg, rgba(245,240,230,.94), rgba(245,240,230,.73) 75%, transparent); }
+  .world-copy h2 { margin: 0 0 8px; font-size: clamp(34px, 4vw, 51px); line-height: 1.08; font-weight: normal; }
+  .world-copy p { margin: 0; font-size: 13px; color: #51575a; letter-spacing: .4px; }
+  .enter { display: inline-flex; gap: 18px; margin-top: 27px; font-size: 13px; color: var(--brown); }
+  .enter b { font-weight: normal; transition: transform .2s ease; }
+  .world:hover .enter b { transform: translateX(5px); }
+  .field-footer { width: min(1280px, calc(100% - 80px)); }
+  @media (max-width: 700px) {
+    .field-header, .field-entry, .field-footer { width: calc(100% - 44px); }
+    .field-header { height: 72px; }
+    .field-entry { padding: 38px 0 42px; }
+    .field-intro { display: block; margin-bottom: 28px; }
+    .field-intro h1 { font-size: 57px; letter-spacing: 4px; }
+    .field-intro > span { display: block; margin-top: 17px; font-size: 14px; }
+    .worlds { grid-template-columns: 1fr; min-height: 0; }
+    .world { min-height: 390px; padding: 25px 22px 27px; }
+    .world:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+    .world-copy { padding: 30px 22px 17px; max-width: 360px; }
+    .world-copy h2 { font-size: 37px; }
+    .world-art { transform: translateX(8%); }
+    .world:hover .world-art { transform: translateX(8%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .world-art, .world::after, .enter b { transition: none; } }
+</style>

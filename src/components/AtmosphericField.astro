@@ -1,0 +1,46 @@
+---
+const { world } = Astro.props as { world: 'academic' | 'elsewhere' };
+---
+
+{world === 'academic' ? (
+  <svg class="field-art academic-art" viewBox="0 0 720 760" aria-hidden="true">
+    <defs>
+      <pattern id="archive-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path d="M48 0H0V48" fill="none" stroke="currentColor" stroke-width="0.7" />
+      </pattern>
+    </defs>
+    <rect width="720" height="760" fill="url(#archive-grid)" opacity="0.42" />
+    <g fill="none" stroke="currentColor">
+      <path d="M-20 554C102 468 176 506 272 411S482 260 756 330" stroke-width="1.6" />
+      <path d="M-34 598C116 494 208 552 315 434S536 307 760 361" stroke-width="0.8" />
+      <path d="M18 641C151 547 259 607 361 488S565 371 748 401" stroke-width="0.7" />
+      <path d="M76 208C184 120 340 148 424 76S598 20 700 54" stroke-width="0.8" opacity="0.7" />
+      <path d="M75 112V650M645 112V650" stroke-width="0.8" />
+      <path d="M62 160H88M62 256H88M62 352H88M62 448H88M62 544H88M632 160H658M632 256H658M632 352H658M632 448H658M632 544H658" stroke-width="1" />
+    </g>
+    <g fill="currentColor" font-family="Georgia, serif" font-size="10" letter-spacing="2">
+      <text x="104" y="135">FIELD NOTES</text>
+      <text x="518" y="625">OBSERVATION / 01</text>
+    </g>
+  </svg>
+) : (
+  <svg class="field-art botanical-field" viewBox="0 0 720 760" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M377 742C365 632 378 544 405 451C432 359 470 275 518 179" stroke-width="2" />
+      <path d="M405 451C351 406 310 349 286 280M430 368C485 333 530 283 558 221M384 532C331 506 287 468 252 414M457 302C430 250 425 197 440 145" stroke-width="1.4" />
+      <path d="M286 280C245 267 211 231 197 188C239 195 276 229 286 280ZM252 414C202 409 163 383 138 342C186 337 230 363 252 414ZM440 145C411 111 402 69 415 28C448 55 458 103 440 145ZM518 179C520 132 547 92 590 70C594 119 568 158 518 179ZM558 221C604 200 649 205 682 234C639 252 594 248 558 221ZM430 368C478 374 514 399 535 440C489 440 450 416 430 368Z" stroke-width="1.2" />
+      <path d="M378 642C425 608 475 596 529 606M369 680C322 651 276 644 226 657" stroke-width="1" />
+      <path d="M529 606c25-4 44 6 54 29-25 5-44-5-54-29ZM226 657c-25-8-46-1-60 20 24 9 45 2 60-20Z" stroke-width="1" />
+    </g>
+    <g fill="currentColor" font-family="Georgia, serif" font-size="10" font-style="italic" letter-spacing="1.5">
+      <text x="90" y="122">Specimen II.</text>
+      <text x="485" y="704">Private collection</text>
+    </g>
+  </svg>
+)}
+
+<style>
+  .field-art { width: 100%; height: 100%; color: #76684f; }
+  .academic-art { opacity: .29; }
+  .botanical-field { opacity: .36; }
+</style>
