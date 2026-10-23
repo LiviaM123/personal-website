@@ -9,3 +9,6 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 .entry-meta{gap:24px}.detail-entries h2{line-height:1.25;margin-bottom:5px}.detail-entries .entry-context{display:flex;gap:18px;margin:0 0 13px;font:10px var(--sans);letter-spacing:.6px;text-transform:uppercase;color:var(--brown)}.entry-context span+span{padding-left:18px;border-left:1px solid var(--line)}.detail-entries ul{max-width:730px;margin:17px 0 0;padding:0;list-style:none}.detail-entries li{position:relative;padding:0 0 8px 18px;font-size:13px;line-height:1.65;color:#535b61}.detail-entries li::before{content:'—';position:absolute;left:0;color:var(--brown)}
 @media(max-width:520px){.entry-meta{align-items:flex-start}.entry-meta span:last-child{text-align:right}.detail-entries .entry-context{display:block}.entry-context span{display:block}.entry-context span+span{padding-left:0;border-left:0;margin-top:3px}}
+.architecture-art{width:min(500px,35vw)}
+@media(max-width:900px){.architecture-art{width:340px}}
+@media(max-width:700px){.architecture-art{width:210px}}
