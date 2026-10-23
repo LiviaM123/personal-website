@@ -14,8 +14,13 @@ const switchHref = pathFor(lang === 'en' ? 'zh' : 'en', `academic/${section.slug
     <nav class="breadcrumb" aria-label={lang === 'en' ? 'Breadcrumb' : '面包屑导航'}><a href={url(copy.academic)}>{copy.archive}</a><span>/</span><span>{section.title[lang]}</span></nav>
     <header class="detail-header"><div class="section-meta"><span class="archive-number">{section.number}</span><span>/</span><span>{section.category[lang]}</span></div><h1>{section.title[lang]}</h1><p>{section.introduction[lang]}</p></header>
     <section class="detail-entries" aria-label={lang === 'en' ? 'Entries' : '条目'}>
-      {section.entries.map((entry: any) => <article><div class="entry-meta"><span>{entry.category[lang]}</span><span>{copy.dates}</span></div><h2>{entry.title[lang]}</h2><p>{entry.description[lang]}</p></article>)}
-      <article class="placeholder-entry"><p>{copy.status}</p></article>
+      {section.entries.map((entry: any) => <article>
+        <div class="entry-meta"><span>{entry.category[lang]}</span><span>{entry.date?.[lang] ?? copy.dates}</span></div>
+        <h2>{entry.title[lang]}</h2>
+        {(entry.role || entry.location) && <p class="entry-context"><span>{entry.role?.[lang]}</span><span>{entry.location?.[lang]}</span></p>}
+        <p>{entry.description[lang]}</p>
+        {entry.highlights && <ul>{entry.highlights[lang].map((item: string) => <li>{item}</li>)}</ul>}
+      </article>)}
     </section>
     <a class="return-link" href={url(copy.academic)}><span aria-hidden="true">&#8592;</span> {copy.back} {copy.archive}</a>
   </main>
