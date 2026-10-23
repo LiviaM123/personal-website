@@ -9,5 +9,6 @@ const switchHref = lang === 'en' ? '/zh/' : '/';
 <BaseLayout lang={lang} bodyClass="entrance-page" title={`${copy.brand} — ${lang === 'en' ? 'Personal Archive' : '个人档案'}`}>
   <header class="entrance-header"><a class="entrance-brand" href={url(copy.home)}>{copy.brand}<span>.</span></a><nav aria-label={lang === 'en' ? 'Language' : '语言'}><span>{lang === 'en' ? 'EN' : '中文'}</span><span>/</span><a href={url(switchHref)}>{copy.switchLabel}</a></nav></header>
   <main id="main" class="entrance-main"><p class="overline">{content.label}</p><h1>{content.heading}</h1><p class="entrance-prompt">{content.prompt}</p><div class="entrance-choices"><a href={url(copy.academic)}><span class="choice-label">{content.academicText}</span><h2>{content.academic}</h2><span>{copy.explore} &#8594;</span></a><a href={url(copy.elsewhere)}><span class="choice-label">{content.elsewhereText}</span><h2>{content.elsewhere}</h2><span>{copy.explore} &#8594;</span></a></div></main>
+  <img class="botanical-art botanical-home" src={`${base}art/lily-of-the-valley.webp`} alt="" aria-hidden="true" />
   <footer class="archive-footer"><span>{copy.footer}</span><span>{content.label}</span></footer>
 </BaseLayout>

@@ -10,5 +10,6 @@ const switchHref = lang === 'en' ? '/zh/elsewhere/' : '/elsewhere/';
 <BaseLayout lang={lang} bodyClass="elsewhere-page" title={`${content.title} — Livia`} description={content.body}>
   <SiteHeader lang={lang} switchHref={switchHref} />
   <main id="main" class="elsewhere-shell"><nav><a href={url(copy.home)}>{lang === 'en' ? 'Entrance' : '入口'}</a><span>/</span><a href={url(copy.academic)}>{lang === 'en' ? 'Academic' : '学术'}</a></nav><p class="overline">{content.label}</p><h1>{content.title}</h1><p class="elsewhere-lead">{content.lead}</p><p class="elsewhere-body">{content.body}</p><div class="elsewhere-status"><span>{lang === 'en' ? 'Collection note' : '空间说明'}</span><p>{content.status}</p></div></main>
+  <img class="botanical-art botanical-elsewhere" src={`${base}art/lily-of-the-valley.webp`} alt="" aria-hidden="true" />
   <footer class="archive-footer"><span>{copy.footer}</span><span>{content.title}</span></footer>
 </BaseLayout>
