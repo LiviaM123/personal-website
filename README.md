@@ -39,7 +39,7 @@ All links use Astro's configured base path and are compatible with GitHub Pages 
 
 ## Artwork
 
-`public/art/lily-of-the-valley.webp` was generated specifically for this website as decorative botanical artwork. It is not historical source material or research data. No external image URL is required.
+`public/art/lily-of-the-valley.webp` and `public/art/imperial-architecture.webp` were generated specifically for this website as decorative editorial artwork. They are not historical source material, documentary images, or research data. No external image URL is required.
 
 ## Deployment status
 
