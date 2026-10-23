@@ -13,7 +13,7 @@ const switchHref = lang === 'en' ? '/zh/academic/' : '/academic/';
   <SiteHeader lang={lang} switchHref={switchHref} />
   <main id="main" class="academic-shell">
     <aside class="profile-sidebar">
-      <div class="portrait-placeholder" role="img" aria-label={person.portrait}><span>WM</span><small>{person.portrait}</small></div>
+      <div class="portrait-placeholder"><img src={`${base}art/wenxi-miao-portrait.webp`} alt={person.portrait} /></div>
       <h1>{person.name}</h1><p class="secondary-name">{person.secondary}</p>
       <div class="profile-degree"><p>{person.degree}</p><p>{person.school}</p></div>
       <p class="profile-intro">{person.intro}</p>

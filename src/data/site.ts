@@ -17,12 +17,12 @@ export const profile = {
   en: {
     name: 'Wenxi Miao', secondary: 'Livia', degree: 'BSc Biological Sciences', school: 'Imperial College London',
     intro: 'With a background in biological sciences, my interests span healthcare research, strategic analysis, education, and the intersection of science and society.',
-    cv: 'Curriculum Vitae', contact: 'Contact', forthcoming: 'Forthcoming', portrait: 'Portrait placeholder',
+    cv: 'Curriculum Vitae', contact: 'Contact', forthcoming: 'Forthcoming', portrait: 'Portrait of Wenxi Miao',
   },
   zh: {
     name: '缪文希', secondary: 'Livia · Wenxi Miao', degree: '生物科学理学学士', school: '帝国理工学院',
     intro: '拥有生命科学背景，关注医疗健康研究、战略分析、教育实践，以及科学与社会的交叉领域。',
-    cv: '个人简历', contact: '联系方式', forthcoming: '待补充', portrait: '肖像占位',
+    cv: '个人简历', contact: '联系方式', forthcoming: '待补充', portrait: '缪文希肖像',
   },
 } as const;
 
