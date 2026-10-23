@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const studies = [
+  ['A', 'archive-index', 'Archive Index', 'Numbered records, ruled cards and an orderly archival rhythm.'],
+  ['B', 'natural-history', 'Natural History Catalogue', 'A traditional specimen plate recast as an interdisciplinary catalogue.'],
+  ['C', 'reading-room', 'Manuscript Reading Room', 'A quiet literary archive with marginal notes and paper texture.'],
+  ['D', 'museum-collection', 'Museum Collection', 'Image-led collection records with restrained movement and depth.'],
+];
+---
+<BaseLayout signatureOnly title="Academic Landing Studies — Wency Design Lab">
+  <main id="main" class="academic-index">
+    <nav class="index-nav" aria-label="Breadcrumb">
+      <a href={`${base}design-lab/`}>Design Lab</a><span>/</span><span>Academic studies</span>
+    </nav>
+    <header>
+      <p class="eyebrow">WENCY / ACADEMIC DESIGN LAB</p>
+      <h1>Four ways to<br />open the collection.</h1>
+      <p class="lead">The same three fields and short biography, interpreted as four different archival spaces. These are temporary studies; the current Academic page is unchanged.</p>
+    </header>
+    <div class="study-grid">
+      {studies.map(([letter, slug, title, description]) => (
+        <a class="study-link" href={`${base}design-lab/academic/${slug}/`}>
+          <span class="study-letter">{letter}</span>
+          <div><h2>{title}</h2><p>{description}</p></div>
+          <span class="arrow" aria-hidden="true">&#8599;</span>
+        </a>
+      ))}
+    </div>
+    <p class="source-note">The archival plate used in studies B and D was generated for this design comparison. It is decorative, not research evidence or a historical collection object.</p>
+  </main>
+</BaseLayout>
+<style>
+  .academic-index{width:min(940px,calc(100% - 80px));margin:auto;padding:42px 0 72px}.index-nav{display:flex;gap:10px;font-size:11px;color:var(--muted);margin-bottom:70px}.index-nav a{text-decoration:underline;text-underline-offset:4px}.academic-index header{max-width:730px}.academic-index h1{font-size:clamp(48px,7vw,76px);letter-spacing:0;line-height:1.04;margin:19px 0 28px}.lead{font:18px/1.75 Georgia,serif;color:var(--muted);max-width:680px}.study-grid{margin-top:55px;border-top:1px solid var(--line)}.study-link{display:grid;grid-template-columns:52px 1fr 28px;gap:22px;align-items:center;padding:27px 4px;border-bottom:1px solid var(--line)}.study-letter{font:italic 28px Georgia,serif;color:var(--accent)}.study-link h2{font-size:27px;margin-bottom:5px}.study-link p{font-size:13px;color:var(--muted)}.arrow{font-size:17px;color:var(--muted);transition:transform .2s}.study-link:hover .arrow{transform:translate(3px,-3px)}.source-note{margin-top:30px;font-size:11px;line-height:1.7;color:var(--muted);max-width:680px}@media(max-width:600px){.academic-index{width:calc(100% - 44px);padding-top:28px}.index-nav{margin-bottom:48px}.study-link{grid-template-columns:32px 1fr 20px;gap:12px;padding:23px 0}.study-link h2{font-size:23px}.lead{font-size:16px}}
+</style>

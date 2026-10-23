@@ -1,0 +1,13 @@
+---
+import AcademicStudy from '../../../components/design-lab/AcademicStudy.astro';
+
+export function getStaticPaths() {
+  return ['archive-index', 'natural-history', 'reading-room', 'museum-collection'].map((concept) => ({
+    params: { concept },
+    props: { concept },
+  }));
+}
+
+const { concept } = Astro.props;
+---
+<AcademicStudy concept={concept} />
