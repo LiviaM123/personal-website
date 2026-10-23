@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import { academicSections, languages, profile, pathFor, type Language } from '../data/site';
+const { lang } = Astro.props as { lang: Language };
+const copy = languages[lang];
+const person = profile[lang];
+const base = import.meta.env.BASE_URL;
+const url = (path: string) => `${base}${path.replace(/^\//, '')}`;
+const switchHref = lang === 'en' ? '/zh/academic/' : '/academic/';
+---
+<BaseLayout lang={lang} bodyClass="archive-page" title={`${person.name} — ${copy.archive}`} description={person.intro}>
+  <SiteHeader lang={lang} switchHref={switchHref} />
+  <main id="main" class="academic-shell">
+    <aside class="profile-sidebar">
+      <div class="portrait-placeholder" role="img" aria-label={person.portrait}><span>WM</span><small>{person.portrait}</small></div>
+      <h1>{person.name}</h1><p class="secondary-name">{person.secondary}</p>
+      <div class="profile-degree"><p>{person.degree}</p><p>{person.school}</p></div>
+      <p class="profile-intro">{person.intro}</p>
+      <div class="profile-links" aria-label={lang === 'en' ? 'Professional links' : '专业链接'}>
+        <span>{person.cv}<small>{person.forthcoming}</small></span><span>{person.contact}<small>{person.forthcoming}</small></span>
+      </div>
+    </aside>
+    <section class="academic-sections" aria-label={lang === 'en' ? 'Academic collection' : '学术档案栏目'}>
+      {academicSections.map((section) => (
+        <a class="academic-section" href={url(pathFor(lang, `academic/${section.slug}`))}>
+          <div class="section-meta"><span class="archive-number">{section.number}</span><span>/</span><span>{section.category[lang]}</span></div>
+          <h2>{section.title[lang]}</h2><p>{section.description[lang]}</p><span class="explore">{copy.explore}<b aria-hidden="true">&#8594;</b></span>
+        </a>
+      ))}
+    </section>
+  </main>
+  <img class="botanical-art" src={`${base}art/lily-of-the-valley.webp`} alt="" aria-hidden="true" />
+  <footer class="archive-footer"><span>{copy.footer}</span><span>{copy.archive}</span></footer>
+</BaseLayout>

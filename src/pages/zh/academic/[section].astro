@@ -1,0 +1,7 @@
+---
+import AcademicDetail from '../../../components/AcademicDetail.astro';
+import { academicSections } from '../../../data/site';
+export function getStaticPaths() { return academicSections.map((section) => ({ params: { section: section.slug }, props: { section } })); }
+const { section } = Astro.props;
+---
+<AcademicDetail lang="zh" section={section} />

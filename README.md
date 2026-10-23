@@ -1,63 +1,46 @@
-# Wency Personal Website
+# Livia Personal Website
 
-Stage 1 follows `AGENTS.md`: a minimal entry page with **Academic** and **Elsewhere**, two working foundation pages, and navigation between the two worlds.
+An Astro static website for Wenxi Miao (Livia), organised as two spaces: Academic and Elsewhere.
 
-Built with Astro. Astro prepares ordinary static web pages; visitors do not need JavaScript to navigate this prototype. No visitor information is collected.
+The current redesign branch contains a bilingual academic archive with a vintage editorial and natural-history visual direction. English is served from the existing routes and Simplified Chinese from equivalent `/zh/` routes.
 
-## Start the website
-
-In a terminal, enter the project folder:
+## Local development
 
 ```sh
 cd /workspace/personal-website
-```
-
-Install the exact saved dependency versions (needed on a new machine):
-
-```sh
 npm ci --cache /workspace/.cache/npm
-```
-
-Start the development server, which refreshes pages as files change:
-
-```sh
 npm run dev -- --port 3000
 ```
 
-The current cloud instance has already been installed and started. Use the development server through your editor's preview or port interface if available. This is not a published website.
-
-## Build and check
-
-Generate the publishable files in `dist/`:
-
-```sh
-npm run build
-```
-
-Build the site and check navigation, mobile layouts, keyboard access and reduced motion in a real browser:
+Build and run the browser checks with:
 
 ```sh
 npm test
 ```
 
-Tests use Playwright with the cloud machine's installed Chromium. On another machine without Chromium, first run `npx playwright install chromium`.
+## Content
 
-## Where to edit
+Shared English and Chinese text is maintained in `src/data/site.ts`. The Academic archive has three editable collections:
 
-- `src/pages/index.astro`: entry title, invitation and two choices.
-- `src/data/worlds.ts`: the introductory text for Academic and Elsewhere.
-- `src/components/WorldPage.astro`: shared structure of the two foundation pages.
-- `src/styles/global.css`: colours, type and responsive layout.
-- `astro.config.mjs`: static site configuration.
+- Healthcare & Strategy
+- Education & Outreach
+- Life Sciences & Research
 
-The English wording follows the entry experience specified in `AGENTS.md`. The worlds use the same layout and typography, with navy/ivory for Academic and warmer tones for Elsewhere. System fonts avoid external font requests.
+The CV, contact information, profile photograph, and experience dates remain explicit placeholders until verified material is supplied. No fictional portrait, contact address, publication, qualification, or date is included.
 
-## Next stages and owner decisions
+## Routes
 
-No decision is required to run Stage 1. Before publication, review the wording and appearance. Photos, CV downloads, project stories and bilingual content belong to later stages and need your selected public materials.
+- `/` and `/zh/`: entrance
+- `/academic/` and `/zh/academic/`: Academic archive
+- `/academic/[section]/` and `/zh/academic/[section]/`: collection details
+- `/elsewhere/` and `/zh/elsewhere/`: Elsewhere
 
-GitHub Pages deployment is prepared in `.github/workflows/deploy.yml`. In the repository on GitHub, open Settings → Pages and set Source to GitHub Actions. A push to `main` builds and publishes the site. The workflow uses the `/personal-website/` base path; local development keeps `/`. The expected address after successful deployment is `https://liviam123.github.io/personal-website/`. No custom domain is needed.
+All links use Astro's configured base path and are compatible with GitHub Pages deployment under `/personal-website/`.
 
-To remove this temporary public site later, open Settings → Pages and use Unpublish site. If you also want to prevent future pushes from publishing it again, disable the deployment workflow under Actions.
+## Artwork
 
-Earlier portfolio draft work is preserved outside this repository at `/workspace/scratch/academic-draft/` for possible Stage 2 reuse. It is not part of this foundation website or a permanent GitHub backup.
+`public/art/lily-of-the-valley.webp` was generated specifically for this website as decorative botanical artwork. It is not historical source material or research data. No external image URL is required.
+
+## Deployment status
+
+This redesign is prepared on a local review branch. It must not be pushed to `main` or deployed until the site owner approves the design.

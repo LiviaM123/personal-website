@@ -1,10 +1,10 @@
-# Wency Personal Website
+# Livia Personal Website
 
 ## 1. Project Overview
 
-This repository contains the personal website of **Wency Miao**.
+This repository contains the personal website of **Wenxi Miao**.
 
-The goal is not to create a conventional résumé website or a generic academic homepage. The website should function as an interactive personal digital space that represents different dimensions of Wency's identity, work, interests, and creative life.
+The goal is not to create a conventional résumé website or a generic academic homepage. The website should function as an interactive personal digital space that represents different dimensions of Livia's identity, work, interests, and creative life.
 
 The site has two main worlds:
 
@@ -27,7 +27,7 @@ The website should communicate:
 
 Instead of immediately presenting visitors with a résumé, biography, or navigation bar, the website should begin with an intentional entry experience.
 
-Visitors choose which side of Wency's world they would like to explore.
+Visitors choose which side of Livia's world they would like to explore.
 
 The website should feel like entering and exploring a personal space rather than reading a conventional professional profile.
 
@@ -70,11 +70,11 @@ The homepage should initially be minimal.
 
 Possible central identity:
 
-**WENCY**
+**LIVIA**
 
 or
 
-**WENCY MIAO**
+**WENXI MIAO**
 
 The visitor should then be invited to choose how they would like to explore the site.
 
@@ -141,7 +141,7 @@ The initial version of the website does NOT need this feature.
 
 ## Purpose
 
-The Academic side presents Wency's academic background, research, professional experience, analytical work, and CV.
+The Academic side presents Livia's academic background, research, professional experience, analytical work, and CV.
 
 It should communicate an interdisciplinary identity around areas including:
 
@@ -156,7 +156,7 @@ It should communicate an interdisciplinary identity around areas including:
 - Healthcare / Life Sciences
 - Research
 
-The site should not force Wency into a single narrow professional label.
+The site should not force Livia into a single narrow professional label.
 
 ---
 
@@ -355,7 +355,7 @@ Possible:
 
 ## Reflection
 
-What Wency learned and why the project matters.
+What Livia learned and why the project matters.
 
 Project pages should be readable by intelligent visitors who are not necessarily specialists.
 
@@ -363,7 +363,7 @@ Project pages should be readable by intelligent visitors who are not necessarily
 
 # 13. Example Flagship Academic Project
 
-One likely flagship project is Wency's undergraduate research involving social networks and cattle.
+One likely flagship project is Livia's undergraduate research involving social networks and cattle.
 
 Possible presentation:
 
@@ -389,7 +389,7 @@ This project may eventually use a custom visual symbol combining:
 
 Do not invent scientific results or project details when content has not been supplied.
 
-Use placeholders and ask Wency when information is missing.
+Use placeholders and ask Livia when information is missing.
 
 ---
 
@@ -397,7 +397,7 @@ Use placeholders and ask Wency when information is missing.
 
 ## Purpose
 
-Elsewhere represents the parts of Wency's identity beyond formal academic and professional work.
+Elsewhere represents the parts of Livia's identity beyond formal academic and professional work.
 
 It may eventually contain:
 
@@ -462,11 +462,11 @@ The central concept is:
 
 Avoid framing the site as:
 
-> Professional Wency vs Private Wency.
+> Professional Livia vs Private Livia.
 
 Prefer the idea:
 
-> Wency, depending on where you choose to look.
+> Livia, depending on where you choose to look.
 
 Visitors should always have a subtle way to move between the two worlds.
 
@@ -646,7 +646,7 @@ If a simpler architecture would achieve the same result, prefer the simpler arch
 
 # 23. Content Management
 
-Wency should eventually be able to add a project without editing complicated component code.
+Livia should eventually be able to add a project without editing complicated component code.
 
 Where practical, project content should therefore live in Markdown / MDX or Astro content collections.
 
@@ -678,11 +678,11 @@ When modifying this repository:
 9. Do not invent personal information.
 10. Do not invent academic achievements, employment, research findings, publications, dates, or credentials.
 
-When information is missing, use an obvious placeholder or ask Wency.
+When information is missing, use an obvious placeholder or ask Livia.
 
 ---
 
-# 25. Working With Wency
+# 25. Working With Livia
 
 The website owner is a beginner in web development.
 
@@ -692,10 +692,10 @@ When explaining work:
 - explain unfamiliar technical terms briefly;
 - distinguish between required and optional changes;
 - do not assume knowledge of Git, npm, Astro, HTML, CSS, or JavaScript;
-- give exact commands when Wency needs to run something;
-- explain what a command will do before asking Wency to run it.
+- give exact commands when Livia needs to run something;
+- explain what a command will do before asking Livia to run it.
 
-Do not overwhelm Wency with implementation details unless requested.
+Do not overwhelm Livia with implementation details unless requested.
 
 When multiple technical approaches are possible, recommend one default rather than presenting many equivalent choices.
 
@@ -783,7 +783,7 @@ The immediate goal is:
 The first version should demonstrate:
 
 ```text
-WENCY
+LIVIA
 
 How would you like to explore?
 

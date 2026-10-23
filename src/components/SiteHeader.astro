@@ -1,0 +1,14 @@
+---
+import { languages, type Language } from '../data/site';
+const { lang, switchHref } = Astro.props as { lang: Language; switchHref: string };
+const copy = languages[lang];
+const base = import.meta.env.BASE_URL;
+const url = (path: string) => `${base}${path.replace(/^\//, '')}`;
+---
+<header class="site-header">
+  <a class="site-brand" href={url(copy.home)}>{copy.brand}<span>.</span><small>{copy.archive}</small></a>
+  <span class="header-rule" aria-hidden="true"></span>
+  <nav aria-label={lang === 'en' ? 'Language' : '语言'}>
+    <span aria-current="true">{lang === 'en' ? 'EN' : '中文'}</span><span>/</span><a href={url(switchHref)} hreflang={lang === 'en' ? 'zh-CN' : 'en'}>{copy.switchLabel}</a>
+  </nav>
+</header>
